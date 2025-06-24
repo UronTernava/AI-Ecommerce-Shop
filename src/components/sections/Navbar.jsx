@@ -86,12 +86,12 @@ export default function Navbar() {
       } border-b border-gray-100 dark:border-gray-800`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
+        <div className="flex justify-between h-14 sm:h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <button
               onClick={() => scrollToSection("home")}
-              className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-purple-400"
+              className="text-lg sm:text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-purple-400"
             >
               AI-Shop
             </button>
@@ -99,12 +99,12 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex flex-1 justify-center">
-            <div className="flex space-x-8">
+            <div className="flex space-x-6 lg:space-x-8">
               {navLinks.map((link) => (
                 <div key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors"
+                    className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-2 sm:px-3 py-2 text-sm font-medium transition-colors"
                   >
                     {link.name}
                   </button>
@@ -114,16 +114,16 @@ export default function Navbar() {
           </div>
 
           {/* Right Side Elements */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             {/* Search */}
             <div className="hidden md:block">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FiSearch className="h-5 w-5 text-gray-400 dark:text-gray-500" />
+                  <FiSearch className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 dark:text-gray-500" />
                 </div>
                 <input
                   type="text"
-                  className="block w-full pl-10 pr-3 py-2 border border-gray-200 dark:border-gray-700 rounded-full leading-5 bg-white dark:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:focus:border-indigo-400 sm:text-sm transition-all"
+                  className="block w-full pl-8 sm:pl-10 pr-3 py-1.5 sm:py-2 border border-gray-200 dark:border-gray-700 rounded-full leading-5 bg-white dark:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:focus:border-indigo-400 text-xs sm:text-sm transition-all"
                   placeholder="Search products..."
                 />
               </div>
@@ -136,9 +136,9 @@ export default function Navbar() {
               aria-label="Toggle dark mode"
             >
               {darkMode ? (
-                <FiSun className="h-6 w-6" />
+                <FiSun className="h-5 w-5 sm:h-6 sm:w-6" />
               ) : (
-                <FiMoon className="h-6 w-6" />
+                <FiMoon className="h-5 w-5 sm:h-6 sm:w-6" />
               )}
             </button>
 
@@ -147,29 +147,29 @@ export default function Navbar() {
               className="p-1 rounded-full text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors"
               onClick={() => navigate("/cart")}
             >
-              <FiShoppingCart className="h-6 w-6" />
+              <FiShoppingCart className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
 
             {/* User Dropdown */}
-            <Menu as="div" className="relative ml-4">
+            <Menu as="div" className="relative ml-2 sm:ml-4">
               <Menu.Button className="flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <div className={`h-8 w-8 rounded-full flex items-center justify-center ${
+                <div className={`h-7 w-7 sm:h-8 sm:w-8 rounded-full flex items-center justify-center ${
                   isAuthenticated && user 
                     ? "bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300" 
                     : "bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300"
                 }`}>
                   {isAuthenticated && user ? (
-                    <span className="font-medium">
+                    <span className="font-medium text-sm sm:text-base">
                       {user.name
                         .split(" ")
                         .map((n) => n[0])
                         .join("")}
                     </span>
                   ) : (
-                    <FiUser className="h-5 w-5" />
+                    <FiUser className="h-4 w-4 sm:h-5 sm:w-5" />
                   )}
                 </div>
-                <FiChevronDown className="ml-1 h-4 w-4 text-gray-400 dark:text-gray-500" />
+                <FiChevronDown className="ml-1 h-3 w-3 sm:h-4 sm:w-4 text-gray-400 dark:text-gray-500" />
               </Menu.Button>
               <Transition
                 as={Fragment}

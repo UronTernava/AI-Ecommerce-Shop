@@ -31,18 +31,18 @@ const products = [
 
 export default function ProductGrid() {
   return (
-    <section className="py-16 bg-white dark:bg-gray-900" id="products">
+    <section className="py-12 sm:py-16 bg-white dark:bg-gray-900" id="products">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
             AI-Suggested Products
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-2">
             Selected by our algorithm based on your preferences
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -52,7 +52,7 @@ export default function ProductGrid() {
           <Link
             to="/products"
             className="inline-block text-gray-700 dark:text-gray-300 hover:text-indigo-600 
-             dark:hover:text-indigo-400 px-6 py-3 text-xl font-semibold transition-all 
+             dark:hover:text-indigo-400 px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-xl font-semibold transition-all 
              duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] 
              hover:scale-[1.05] border border-gray-400 dark:border-gray-600 
              rounded-xl hover:border-indigo-500"
